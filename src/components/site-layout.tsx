@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/pureza-real-logo.png.asset.json";
+import logoAsset from "@/assets/pureza-real-logo.jpg.asset.json";
 
 const links = [
   ["/", "Inicio"],
