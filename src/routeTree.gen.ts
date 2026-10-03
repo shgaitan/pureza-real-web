@@ -10,33 +10,74 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as CatalogoRouteImport } from './routes/catalogo'
+import { Route as NosotrosRouteImport } from './routes/nosotros'
+import { Route as PuntosDeVentaRouteImport } from './routes/puntos-de-venta'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CatalogoRoute = CatalogoRouteImport.update({
+  id: '/catalogo',
+  path: '/catalogo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NosotrosRoute = NosotrosRouteImport.update({
+  id: '/nosotros',
+  path: '/nosotros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PuntosDeVentaRoute = PuntosDeVentaRouteImport.update({
+  id: '/puntos-de-venta',
+  path: '/puntos-de-venta',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/catalogo': typeof CatalogoRoute
+  '/nosotros': typeof NosotrosRoute
+  '/puntos-de-venta': typeof PuntosDeVentaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/catalogo': typeof CatalogoRoute
+  '/nosotros': typeof NosotrosRoute
+  '/puntos-de-venta': typeof PuntosDeVentaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/catalogo': typeof CatalogoRoute
+  '/nosotros': typeof NosotrosRoute
+  '/puntos-de-venta': typeof PuntosDeVentaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/blog' | '/catalogo' | '/nosotros' | '/puntos-de-venta'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/blog' | '/catalogo' | '/nosotros' | '/puntos-de-venta'
+  id:
+    '__root__' | '/' | '/blog' | '/catalogo' | '/nosotros' | '/puntos-de-venta'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogRoute: typeof BlogRoute
+  CatalogoRoute: typeof CatalogoRoute
+  NosotrosRoute: typeof NosotrosRoute
+  PuntosDeVentaRoute: typeof PuntosDeVentaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +89,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/catalogo': {
+      id: '/catalogo'
+      path: '/catalogo'
+      fullPath: '/catalogo'
+      preLoaderRoute: typeof CatalogoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nosotros': {
+      id: '/nosotros'
+      path: '/nosotros'
+      fullPath: '/nosotros'
+      preLoaderRoute: typeof NosotrosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/puntos-de-venta': {
+      id: '/puntos-de-venta'
+      path: '/puntos-de-venta'
+      fullPath: '/puntos-de-venta'
+      preLoaderRoute: typeof PuntosDeVentaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogRoute: BlogRoute,
+  CatalogoRoute: CatalogoRoute,
+  NosotrosRoute: NosotrosRoute,
+  PuntosDeVentaRoute: PuntosDeVentaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
