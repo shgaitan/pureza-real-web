@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Public brand sections use separate TanStack routes so each page remains shareable, indexable, and independently maintainable.
+- Commerce starts with a client-side WhatsApp order builder; keep product data centralized for a future payment migration.
