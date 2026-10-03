@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Leaf, ShieldCheck, Sprout } from "lucide-react";
+import { ArrowRight, Leaf, ShieldCheck, Sprout, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import hero from "@/assets/pureza-hero.jpg";
 import productsImage from "@/assets/pureza-productos.jpg";
@@ -15,6 +15,12 @@ export const Route = createFileRoute("/")({
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Home,
 });
+
+const values: Array<[LucideIcon, string, string]> = [
+  [ShieldCheck, "Pureza real", "Sin aditivos ni químicos."],
+  [Leaf, "Apicultura responsable", "Cuidamos el ciclo natural de las abejas."],
+  [Sprout, "Origen transparente", "Trazabilidad desde la colmena hasta tu mesa."],
+];
 
 function Home() { return <>
   <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden bg-primary">
@@ -35,7 +41,7 @@ function Home() { return <>
       <div><p className="text-sm font-bold uppercase text-earth">Una historia que comenzó en 2012</p><h2 className="mt-4 font-brand text-4xl leading-tight text-primary sm:text-5xl">De nuestras colmenas a tu familia</h2><p className="mt-5 text-lg leading-8 text-muted-foreground">Somos una empresa apícola nicaragüense comprometida con una miel auténtica, trazable y respetuosa con el ciclo natural de las abejas.</p><Button asChild variant="outline" size="lg" className="mt-7"><Link to="/nosotros">Conocé nuestra historia <ArrowRight /></Link></Button></div>
       <img src={apiary} alt="Apicultor revisando una colmena saludable" loading="lazy" width={1408} height={1008} className="aspect-[7/5] w-full rounded-md object-cover" />
     </div>
-    <div className="mt-16 grid gap-px overflow-hidden rounded-md bg-border sm:grid-cols-3">{[[ShieldCheck,"Pureza real","Sin aditivos ni químicos."],[Leaf,"Apicultura responsable","Cuidamos el ciclo natural de las abejas."],[Sprout,"Origen transparente","Trazabilidad desde la colmena hasta tu mesa."]].map(([Icon,title,text]) => <div className="bg-background p-7" key={String(title)}><Icon className="text-earth" size={28}/><h3 className="mt-5 text-lg font-bold text-primary">{String(title)}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{String(text)}</p></div>)}</div>
+    <div className="mt-16 grid gap-px overflow-hidden rounded-md bg-border sm:grid-cols-3">{values.map(([Icon,title,text]) => <div className="bg-background p-7" key={title}><Icon className="text-earth" size={28}/><h3 className="mt-5 text-lg font-bold text-primary">{title}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></div>)}</div>
   </div></section>
 
   <section className="py-20"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p className="text-sm font-bold uppercase text-earth">Para cada mesa</p><h2 className="mt-3 font-brand text-4xl text-primary">Una presentación para vos</h2></div><Button asChild variant="outline"><Link to="/catalogo">Ver catálogo <ArrowRight /></Link></Button></div><div className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-center"><img src={productsImage} alt="Presentaciones de miel Pureza Real" loading="lazy" width={1408} height={1056} className="aspect-[4/3] w-full rounded-md object-cover"/><div className="grid grid-cols-2 gap-px overflow-hidden rounded-md bg-border">{products.map((p)=><div key={p.id} className="bg-card p-5"><p className="font-semibold text-primary">{p.volume}</p><p className="mt-2 text-2xl font-bold">C${p.price}</p></div>)}</div></div></div></section>
