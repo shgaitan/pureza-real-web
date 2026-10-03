@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/pureza-real-logo.jpg.asset.json";
+import logo from "@/assets/pureza-real-logo.jpg";
 
 const links = [
   ["/", "Inicio"],
@@ -18,7 +18,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     <header className="sticky top-0 z-50 border-b border-primary/15 bg-background/95 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
         <Link to="/" aria-label="Pureza Real, inicio" className="flex items-center gap-3">
-          <img src={logoAsset.url} alt="Pureza Real" className="h-16 w-auto mix-blend-multiply" />
+          <img src={logo} alt="Pureza Real" className="h-16 w-auto mix-blend-multiply" />
         </Link>
         <nav className="hidden items-center gap-7 md:flex" aria-label="Navegación principal">
           {links.map(([to, label]) => <Link key={to} to={to} className="text-sm font-semibold text-primary/75 transition-colors hover:text-primary" activeProps={{ className: "text-primary" }}>{label}</Link>)}
