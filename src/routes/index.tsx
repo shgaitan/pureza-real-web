@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import hero from "@/assets/pureza-hero.jpg";
 import productsImage from "@/assets/pureza-productos.jpg";
 import apiary from "@/assets/pureza-apiario.jpg";
-import { products, posts } from "@/lib/site-data";
+import { products } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -45,6 +45,4 @@ function Home() { return <>
   </div></section>
 
   <section className="py-20"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p className="text-sm font-bold uppercase text-earth">Para cada mesa</p><h2 className="mt-3 font-brand text-4xl text-primary">Una presentación para vos</h2></div><Button asChild variant="outline"><Link to="/catalogo">Ver catálogo <ArrowRight /></Link></Button></div><div className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-center"><img src={productsImage} alt="Presentaciones de miel Pureza Real" loading="lazy" width={1408} height={1056} className="aspect-[4/3] w-full rounded-md object-cover"/><div className="grid grid-cols-2 gap-px overflow-hidden rounded-md bg-border">{products.map((p)=><div key={p.id} className="bg-card p-5"><p className="font-semibold text-primary">{p.volume}</p><p className="mt-2 text-2xl font-bold">C${p.price}</p></div>)}</div></div></div></section>
-
-  <section className="bg-lavender/35 py-20"><div className="mx-auto max-w-7xl px-5 lg:px-8"><p className="text-sm font-bold uppercase text-earth">Aprendamos juntos</p><h2 className="mt-3 font-brand text-4xl text-primary">Historias del panal</h2><div className="mt-9 grid gap-5 md:grid-cols-3">{posts.map((p)=><article key={p.slug} className="rounded-md border border-primary/10 bg-background p-6"><p className="text-xs font-bold uppercase text-earth">{p.category} · {p.minutes}</p><h3 className="mt-4 text-xl font-bold text-primary">{p.title}</h3><p className="mt-3 text-sm leading-6 text-muted-foreground">{p.excerpt}</p><Link to="/blog" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-primary">Leer artículo <ArrowRight size={16}/></Link></article>)}</div></div></section>
 </>; }
