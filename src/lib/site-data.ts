@@ -1,9 +1,10 @@
 export const products = [
-  { id: "250", name: "Miel pura 250 ml", volume: "250 ml", price: 100 },
-  { id: "365", name: "Miel pura 365 ml", volume: "365 ml", price: 130 },
-  { id: "500", name: "Miel pura ½ litro", volume: "½ litro", price: 170 },
-  { id: "1000", name: "Miel pura 1 litro", volume: "1 litro", price: 260 },
-  { id: "galon", name: "Miel pura galón", volume: "Galón", price: 850 },
+  { id: "vidrio-300", name: "Miel pura 300 ml (vidrio)", volume: "300 ml · vidrio", price: 320 },
+  { id: "vidrio-180", name: "Miel pura 180 ml (vidrio)", volume: "180 ml · vidrio", price: 260 },
+  { id: "1000", name: "Miel pura 1 litro (plástico)", volume: "1 litro · plástico", price: 330 },
+  { id: "500", name: "Miel pura ½ litro (plástico)", volume: "½ litro · plástico", price: 180 },
+  { id: "365", name: "Miel pura 365 ml (plástico)", volume: "365 ml · plástico", price: 150 },
+  { id: "120", name: "Miel pura 120 ml (plástico)", volume: "120 ml · plástico", price: 120 },
 ] as const;
 
 export const stores = [
