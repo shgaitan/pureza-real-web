@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Droplets, Heart, Leaf, Users, type LucideIcon } from "lucide-react";
-import apiary from "@/assets/pureza-apiario.jpg";
+import panal from "@/assets/pureza-panal.jpg.asset.json";
 
 export const Route = createFileRoute("/nosotros")({ head:()=>({meta:[{title:"Quiénes somos — Pureza Real"},{name:"description",content:"Conocé la historia, misión y prácticas sostenibles de Miel de Abeja Pureza Real."},{property:"og:title",content:"Quiénes somos — Pureza Real"},{property:"og:description",content:"Más de una década cuidando abejas y produciendo miel pura en Nicaragua."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}]}), component: About });
 const values: Array<[LucideIcon, string, string]> = [[Droplets,"Pureza","Miel sin aditivos ni químicos."],[Leaf,"Sostenibilidad","Respeto por el ciclo natural de las abejas."],[Users,"Educación","Compartimos conocimiento con estudiantes y nuevos apicultores."],[Heart,"Familia","Creamos lazos que pasan de una generación a otra."]];

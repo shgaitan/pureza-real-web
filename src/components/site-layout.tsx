@@ -9,7 +9,6 @@ const links = [
   ["/nosotros", "Quiénes somos"],
   ["/catalogo", "Catálogo"],
   ["/puntos-de-venta", "Puntos de venta"],
-  ["/blog", "Blog"],
 ] as const;
 
 export function SiteLayout({ children }: { children: ReactNode }) {
