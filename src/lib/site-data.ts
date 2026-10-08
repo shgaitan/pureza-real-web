@@ -12,3 +12,5 @@ export const stores = [
   { city: "Jinotepe", address: "Plaza frente a Dollar Store, módulo 3, stand de Cacao y Miel" },
   { city: "Managua", address: "Altamira, Plaza San Mateo, segundo piso, tienda Eyka Collection" },
 ] as const;
+
+export const whatsappNumber = "50585222975";
